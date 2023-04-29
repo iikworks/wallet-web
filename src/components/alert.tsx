@@ -17,4 +17,8 @@ export default function Alert() {
       </div>
     );
   }
+
+  return (
+    <div className="fixed z-50 top-6 right-6"></div>
+  );
 }
