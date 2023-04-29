@@ -1,7 +1,7 @@
 import {Transaction} from "../../models/transaction.ts";
 import AccountDetails from "../accounts/account-details.tsx";
 import CurrencyAmount from "../currency/amount.tsx";
-import * as moment from "moment/moment";
+import moment from 'moment'
 
 type TableRowProps = {
   transaction: Transaction;

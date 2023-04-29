@@ -7,7 +7,7 @@ import TransactionsForm, {TransactionsFormErrors, TransactionsFormParams} from "
 import TransactionsService from "../../services/TransactionsService.ts";
 import {useNavigate} from "react-router-dom";
 import {CONSTANTS} from "../../constants.ts";
-import * as moment from "moment/moment";
+import moment from 'moment'
 import {Context} from "../../main.tsx";
 import useAlert from "../../hooks/use-alert.tsx";
 
