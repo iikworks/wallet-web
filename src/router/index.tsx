@@ -10,6 +10,9 @@ import TransactionsAdd from "../routes/transactions/add.tsx";
 import OrganizationsAdd from "../routes/organizations/add.tsx";
 import OrganizationsList from "../routes/organizations/list.tsx";
 import OrganizationsEdit from "../routes/organizations/edit.tsx";
+import BanksList from "../routes/banks/list.tsx";
+import BanksAdd from "../routes/banks/add.tsx";
+import BanksEdit from "../routes/banks/edit.tsx";
 
 export const publicRouter = createBrowserRouter([
   {
@@ -63,6 +66,15 @@ export const privateAdminRouter = createBrowserRouter([
       }, {
         path: "/organizations/:id",
         element: <OrganizationsEdit />,
+      }, {
+        path: "/banks",
+        element: <BanksList />,
+      }, {
+        path: "/banks/add",
+        element: <BanksAdd />,
+      }, {
+        path: "/banks/:id",
+        element: <BanksEdit />,
       },
     ]
   },

@@ -72,8 +72,8 @@ export default function Sidebar(): JSX.Element {
 
   return (
     <>
-      <nav className={`flex flex-col justify-between bg-gray-800 w-${opened ? '72' : '24'} text-white text-sm h-max min-h-screen transition-all`}>
-        <div className="space-y-3 px-5 py-4">
+      <nav className={`flex flex-col justify-between bg-gray-800 ${opened ? 'w-72' : 'w-16 sm:w-24'} text-white text-sm h-max min-h-screen transition-all`}>
+        <div className="space-y-3 px-2 sm:px-5 py-4">
           {store.user &&<div className={`flex gap-3 ${opened ? 'items-center' : 'justify-center'} overflow-hidden`}>
             <div className="h-12 w-12 rounded-full bg-gray-500"></div>
             {opened &&<div>
