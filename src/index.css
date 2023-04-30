@@ -1,11 +1,11 @@
-@import url('assets/fonts/ibm-plex-mono/style.css');
+@import url('assets/fonts/helvetica-neue/stylesheet.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Helvetica Neue", sans-serif;
 }
 
 .lds-spinner {
