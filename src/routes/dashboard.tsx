@@ -60,24 +60,24 @@ export default function Dashboard(): JSX.Element {
       <>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           <Block>
-            <div className="text-gray-600">Последняя транзакция</div>
-            <div className="text-base font-medium">
+            <div className="text-base text-gray-600">Последняя транзакция</div>
+            <div className="text-lg font-medium leading-5">
               <CurrencyAmount currency={statistics.data.transactions.latest_first.account.currency}
                               type={statistics.data.transactions.latest_first.type}
                               amount={statistics.data.transactions.latest_first.amount} />
             </div>
           </Block>
           <Block>
-            <div className="text-gray-600">Расход за этот месяц</div>
-            <div className="text-base font-medium">
+            <div className="text-base text-gray-600">Расход за этот месяц</div>
+            <div className="text-lg font-medium leading-5">
                 <CurrencyAmount currency={store.user.currency}
                                 type={CONSTANTS.EXPENSE_TYPE}
                                 amount={statistics.data.transactions.sum_expenses_at_this_month} />
             </div>
           </Block>
           <Block>
-            <div className="text-gray-600">Приход за этот месяц</div>
-            <div className="text-base font-medium">
+            <div className="text-base text-gray-600">Приход за этот месяц</div>
+            <div className="text-lg font-medium leading-5">
                 <CurrencyAmount currency={store.user.currency}
                                 type={CONSTANTS.REPLENISHMENT_TYPE}
                                 amount={statistics.data.transactions.sum_replenishments_at_this_month}/>

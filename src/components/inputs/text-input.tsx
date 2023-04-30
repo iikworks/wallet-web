@@ -7,6 +7,8 @@ type TextInputProps = {
   value: string|number;
   error: string;
   step?: string;
+  min?: string;
+  max?: string;
   title?: string;
   required?: boolean;
   autoFocus?: boolean;
@@ -25,6 +27,8 @@ export default function TextInput(props: TextInputProps) {
              required={props.required}
              onChange={props.onChange}
              step={props.step}
+             min={props.min}
+             max={props.max}
              value={props.value}
              autoFocus={props.autoFocus}/>
       {props.error !== '' &&<div className="font-medium text-red-500 text-sm ml-3 mt-0.5">

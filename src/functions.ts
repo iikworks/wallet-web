@@ -2,6 +2,7 @@ import {Organization} from "./models/organization.ts";
 import {SelectOptionValue} from "./components/inputs/select.tsx";
 import {Account} from "./models/account.ts";
 import {CONSTANTS} from "./constants.ts";
+import {Currency} from "./models/currency.ts";
 
 export function strLimit(string: string, limit: number) {
   if (string.length > limit) return string.substring(0, limit) + '...';
@@ -30,7 +31,7 @@ export function currencyFormat(currency: string, number: number): string {
   return '';
 }
 
-export function convertOrganizationsToOptionsRecursive (organizations: Organization[], withNone: boolean = false): SelectOptionValue[] {
+export function convertOrganizationsToOptionsRecursive (organizations: Organization[], withNone = false): SelectOptionValue[] {
   const options: SelectOptionValue[] = [];
 
   if(withNone) options.push({
@@ -64,6 +65,21 @@ export function convertAccountsToOptions(accounts: Account[]): SelectOptionValue
       value: `${accounts[i].id}`,
       title: title,
       subtitle: currencyFormat(accounts[i].currency, accounts[i].balance),
+      children: [],
+    })
+  }
+
+  return options;
+}
+
+export function convertCurrenciesToOptions(currencies: Currency[]): SelectOptionValue[] {
+  const options: SelectOptionValue[] = [];
+
+  for (let i = 0; i < currencies.length; i++) {
+    options.push({
+      value: currencies[i].code,
+      title: currencies[i].title,
+      subtitle: currencies[i].code,
       children: [],
     })
   }

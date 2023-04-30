@@ -13,6 +13,7 @@ import OrganizationsEdit from "../routes/organizations/edit.tsx";
 import BanksList from "../routes/banks/list.tsx";
 import BanksAdd from "../routes/banks/add.tsx";
 import BanksEdit from "../routes/banks/edit.tsx";
+import SubscriptionsAdd from "../routes/subscriptions/add.tsx";
 
 export const publicRouter = createBrowserRouter([
   {
@@ -37,6 +38,9 @@ const privateRoutes = [
   }, {
     path: "/subscriptions",
     element: <SubscriptionsList />,
+  }, {
+    path: "/subscriptions/add",
+    element: <SubscriptionsAdd />,
   }, {
     path: "/accounts",
     element: <AccountsList />,
