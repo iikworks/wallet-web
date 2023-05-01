@@ -5,6 +5,7 @@ import {convertOrganizationsToOptionsRecursive} from "../../functions.ts";
 import {useNavigate} from "react-router-dom";
 import OrganizationsForm, {OrganizationFormErrors, OrganizationFormParams} from "../../components/organizations/form.tsx";
 import useAlert from "../../hooks/use-alert.tsx";
+import CenterForm from "../../components/page-struct/center-form.tsx";
 
 export default function OrganizationsAdd() {
   const { setAlert } = useAlert();
@@ -59,19 +60,16 @@ export default function OrganizationsAdd() {
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-xl rounded-2xl bg-white py-3 px-5">
-        <h2 className="font-medium text-xl">Добавление организации</h2>
-        <OrganizationsForm errors={errors}
-                          onSubmit={onSubmit}
-                          loading={loading}
-                          initial={{
-                            parent_id: 0,
-                            title: '',
-                            vulgar_title: '',
-                          }}
-                          organizations={organizationsOptions} />
-      </div>
-    </div>
+    <CenterForm title="Добавление организации">
+      <OrganizationsForm errors={errors}
+                         onSubmit={onSubmit}
+                         loading={loading}
+                         initial={{
+                           parent_id: 0,
+                           title: '',
+                           vulgar_title: '',
+                         }}
+                         organizations={organizationsOptions} />
+    </CenterForm>
   );
 }

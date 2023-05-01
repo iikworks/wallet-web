@@ -7,6 +7,7 @@ import useAlert from "../../hooks/use-alert.tsx";
 import {Bank} from "../../models/bank.ts";
 import BanksForm, {BankFormErrors, BankFormParams} from "../../components/banks/form.tsx";
 import BanksService from "../../services/BanksService.ts";
+import CenterForm from "../../components/page-struct/center-form.tsx";
 
 type RouteParams = {
   id: string;
@@ -67,17 +68,14 @@ export default function BanksEdit() {
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-xl rounded-2xl bg-white py-3 px-5">
-        <h2 className="font-medium text-xl">Редактирование банка</h2>
-        {bank &&<BanksForm errors={errors}
-                          onSubmit={onSubmit}
-                          edit={true}
-                          loading={loading}
-                          initial={{
-                            title: bank.title,
-                          }} />}
-      </div>
-    </div>
+    <CenterForm title="Редактирование банка">
+      {bank &&<BanksForm errors={errors}
+                         onSubmit={onSubmit}
+                         edit={true}
+                         loading={loading}
+                         initial={{
+                           title: bank.title,
+                         }} />}
+    </CenterForm>
   );
 }

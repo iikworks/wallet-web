@@ -11,6 +11,7 @@ import {useContext, useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {Context} from "../main.tsx";
 import {currencyFormat} from "../functions.ts";
+import LogoImage from "../assets/images/logo-white.png";
 
 export default function Sidebar(): JSX.Element {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -72,13 +73,13 @@ export default function Sidebar(): JSX.Element {
 
   return (
     <>
-      <nav className={`flex flex-col justify-between bg-gray-800 ${opened ? 'w-72' : 'w-16 sm:w-24'} text-white text-sm h-max min-h-screen transition-all`}>
+      <nav className={`flex flex-col justify-between bg-gray-800 ${opened ? 'w-72' : 'w-16 sm:w-24'} text-white h-max min-h-screen transition-all`}>
         <div className="space-y-3 px-2 sm:px-5 py-4">
           {store.user &&<div className={`flex gap-3 ${opened ? 'items-center' : 'justify-center'} overflow-hidden`}>
-            <div className="h-12 w-12 rounded-full bg-gray-500"></div>
+            <img src={LogoImage} className="h-12 w-12" alt="Wallet" />
             {opened &&<div>
               <div className="font-medium whitespace-nowrap">{`${store.user.first_name} ${store.user.last_name}`}</div>
-              <div className="leading-3 text-gray-400 whitespace-nowrap">
+              <div className="leading-3 text-gray-400 font-medium whitespace-nowrap">
                 {currencyFormat(store.user.currency, store.user.balance)}
               </div>
             </div>}

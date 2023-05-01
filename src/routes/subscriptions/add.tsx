@@ -15,6 +15,7 @@ import SubscriptionsForm, {
 } from "../../components/subscriptions/form.tsx";
 import SubscriptionsService from "../../services/SubscriptionsService.ts";
 import CurrenciesService from "../../services/CurrenciesService.ts";
+import CenterForm from "../../components/page-struct/center-form.tsx";
 
 export default function SubscriptionsAdd() {
   const { setAlert } = useAlert();
@@ -87,23 +88,20 @@ export default function SubscriptionsAdd() {
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-xl rounded-2xl bg-white py-3 px-5">
-        <h2 className="font-medium text-xl">Добавление подписки</h2>
-        <SubscriptionsForm errors={errors}
-                          onSubmit={onSubmit}
-                          loading={loading}
-                          initial={{
-                            account_id: 0,
-                            organization_id: 0,
-                            currency: '',
-                            amount: '0.01',
-                            day: '1',
-                          }}
-                          currencies={currenciesOptions}
-                          accounts={accountsOptions}
-                          organizations={organizationsOptions} />
-      </div>
-    </div>
+    <CenterForm title="Добавление подписки">
+      <SubscriptionsForm errors={errors}
+                         onSubmit={onSubmit}
+                         loading={loading}
+                         initial={{
+                           account_id: 0,
+                           organization_id: 0,
+                           currency: '',
+                           amount: '0.01',
+                           day: '1',
+                         }}
+                         currencies={currenciesOptions}
+                         accounts={accountsOptions}
+                         organizations={organizationsOptions} />
+    </CenterForm>
   );
 }

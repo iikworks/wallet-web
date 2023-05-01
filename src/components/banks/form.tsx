@@ -14,7 +14,7 @@ export type BankFormErrors = {
   title: string;
 };
 
-type OrganizationsFormProps = {
+type BanksFormProps = {
   initial: BankFormParams;
   errors: BankFormErrors;
   loading: boolean;
@@ -22,7 +22,7 @@ type OrganizationsFormProps = {
   onSubmit: (form: BankFormParams) => void;
 };
 
-export default function BanksForm(props: OrganizationsFormProps) {
+export default function BanksForm(props: BanksFormProps) {
   const [form, setForm] = useState<BankFormParams>(props.initial);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

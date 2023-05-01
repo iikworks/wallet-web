@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import useAlert from "../../hooks/use-alert.tsx";
 import BanksForm, {BankFormErrors, BankFormParams} from "../../components/banks/form.tsx";
 import BanksService from "../../services/BanksService.ts";
+import CenterForm from "../../components/page-struct/center-form.tsx";
 
 export default function BanksAdd() {
   const { setAlert } = useAlert();
@@ -39,16 +40,13 @@ export default function BanksAdd() {
   }
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-xl rounded-2xl bg-white py-3 px-5">
-        <h2 className="font-medium text-xl">Добавление банка</h2>
-        <BanksForm errors={errors}
-                          onSubmit={onSubmit}
-                          loading={loading}
-                          initial={{
-                            title: '',
-                          }} />
-      </div>
-    </div>
+    <CenterForm title="Добавление банка">
+      <BanksForm errors={errors}
+                 onSubmit={onSubmit}
+                 loading={loading}
+                 initial={{
+                   title: '',
+                 }} />
+    </CenterForm>
   );
 }

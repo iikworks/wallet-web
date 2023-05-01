@@ -28,12 +28,12 @@ export default function TransactionTableRow(props: TableRowProps) {
         <AccountDetails type={props.transaction.account.type}
                         details={props.transaction.account.details} />
       </td>
-      <td className="px-5 md:px-7 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4 text-base">
-                        <span className=" text-red-500 ">
-                            <CurrencyAmount amount={props.transaction.amount}
-                                            currency={props.transaction.account.currency}
-                                            type={props.transaction.type} />
-                        </span>
+      <td className="px-5 md:px-7 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
+        <span className=" text-red-500 ">
+            <CurrencyAmount amount={props.transaction.amount}
+                            currency={props.transaction.account.currency}
+                            type={props.transaction.type} />
+        </span>
       </td>
     </tr>
   );

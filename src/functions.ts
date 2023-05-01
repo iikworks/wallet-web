@@ -3,6 +3,8 @@ import {SelectOptionValue} from "./components/inputs/select.tsx";
 import {Account} from "./models/account.ts";
 import {CONSTANTS} from "./constants.ts";
 import {Currency} from "./models/currency.ts";
+import {Bank} from "./models/bank.ts";
+import {CardSystem} from "./models/card-system.ts";
 
 export function strLimit(string: string, limit: number) {
   if (string.length > limit) return string.substring(0, limit) + '...';
@@ -85,6 +87,57 @@ export function convertCurrenciesToOptions(currencies: Currency[]): SelectOption
   }
 
   return options;
+}
+
+export function convertBanksToOptions(banks: Bank[]): SelectOptionValue[] {
+  const options: SelectOptionValue[] = [];
+
+  for (let i = 0; i < banks.length; i++) {
+    options.push({
+      value: `${banks[i].id}`,
+      title: banks[i].title,
+      subtitle: '',
+      children: [],
+    })
+  }
+
+  return options;
+}
+
+export function convertCardSystemsToOptions(cardSystems: CardSystem[]): SelectOptionValue[] {
+  const options: SelectOptionValue[] = [];
+
+  for (let i = 0; i < cardSystems.length; i++) {
+    options.push({
+      value: cardSystems[i].title,
+      title: cardSystems[i].title,
+      subtitle: '',
+      children: [],
+    })
+  }
+
+  return options;
+}
+
+export function getAccountTypesOptions(): SelectOptionValue[] {
+  return [
+    {
+      value: CONSTANTS.ACCOUNT_CASH_TYPE,
+      title: 'Наличные',
+      subtitle: 'средства',
+      children: [],
+    }, {
+      value: CONSTANTS.ACCOUNT_BANK_ACCOUNT_TYPE,
+      title: 'Счёт',
+      subtitle: 'в банке',
+      children: [],
+    }, {
+      value: CONSTANTS.ACCOUNT_CARD_TYPE,
+      title: 'Карта',
+      subtitle: 'кредитная/дебетовая',
+      children: [],
+    },
+  ];
 }
 
 export function getTransactionTypesSelectOptions(): SelectOptionValue[] {

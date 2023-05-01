@@ -10,6 +10,7 @@ import OrganizationsForm, {
 } from "../../components/organizations/form.tsx";
 import {Organization} from "../../models/organization.ts";
 import useAlert from "../../hooks/use-alert.tsx";
+import CenterForm from "../../components/page-struct/center-form.tsx";
 
 type RouteParams = {
   id: string;
@@ -85,20 +86,17 @@ export default function OrganizationsEdit() {
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-xl rounded-2xl bg-white py-3 px-5">
-        <h2 className="font-medium text-xl">Редактирование организации</h2>
-        {organization && organizationsOptions &&<OrganizationsForm errors={errors}
-                          onSubmit={onSubmit}
-                          edit={true}
-                          loading={loading}
-                          initial={{
-                            parent_id: organization.parent ? organization.parent.id : 0,
-                            title: organization.title,
-                            vulgar_title: organization.vulgar_title,
-                          }}
-                          organizations={organizationsOptions} />}
-      </div>
-    </div>
+    <CenterForm title="Редактирование организации">
+      {organization && organizationsOptions &&<OrganizationsForm errors={errors}
+                                                                 onSubmit={onSubmit}
+                                                                 edit={true}
+                                                                 loading={loading}
+                                                                 initial={{
+                                                                   parent_id: organization.parent ? organization.parent.id : 0,
+                                                                   title: organization.title,
+                                                                   vulgar_title: organization.vulgar_title,
+                                                                 }}
+                                                                 organizations={organizationsOptions} />}
+    </CenterForm>
   );
 }

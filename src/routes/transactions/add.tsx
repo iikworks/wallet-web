@@ -10,6 +10,7 @@ import {CONSTANTS} from "../../constants.ts";
 import moment from 'moment'
 import {Context} from "../../main.tsx";
 import useAlert from "../../hooks/use-alert.tsx";
+import CenterForm from "../../components/page-struct/center-form.tsx";
 
 export default function TransactionsAdd() {
   const { setAlert } = useAlert();
@@ -77,22 +78,19 @@ export default function TransactionsAdd() {
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-xl rounded-2xl bg-white py-3 px-5">
-        <h2 className="font-medium text-xl">Добавление транзакции</h2>
-        <TransactionsForm errors={errors}
-                          onSubmit={onSubmit}
-                          loading={loading}
-                          initial={{
-                            account_id: 0,
-                            organization_id: 0,
-                            type: CONSTANTS.EXPENSE_TYPE,
-                            amount: '0.01',
-                            date: moment().format('YYYY-MM-DD\\THH:mm'),
-                          }}
-                          accounts={accountsOptions}
-                          organizations={organizationsOptions} />
-      </div>
-    </div>
+    <CenterForm title="Добавление транзакции">
+      <TransactionsForm errors={errors}
+                        onSubmit={onSubmit}
+                        loading={loading}
+                        initial={{
+                          account_id: 0,
+                          organization_id: 0,
+                          type: CONSTANTS.EXPENSE_TYPE,
+                          amount: '0.01',
+                          date: moment().format('YYYY-MM-DD\\THH:mm'),
+                        }}
+                        accounts={accountsOptions}
+                        organizations={organizationsOptions} />
+    </CenterForm>
   );
 }
