@@ -1,5 +1,5 @@
 import {Account} from "../../account.ts";
-import {Transaction} from "../../transaction.ts";
+import {MonthlyTransactionStatistic, Transaction} from "../../transaction.ts";
 import {Subscription} from "../../subscription.ts";
 
 export type DashboardResponse = {
@@ -15,6 +15,7 @@ export type DashboardResponse = {
       count: number;
       sum_expenses_at_this_month: number;
       sum_replenishments_at_this_month: number;
+      statistics_by_month: MonthlyTransactionStatistic[],
     };
     subscriptions: {
       list: Subscription[];

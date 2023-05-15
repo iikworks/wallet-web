@@ -1,11 +1,11 @@
-@import url('assets/fonts/sf-pro-display/stylesheet.css');
+@import url('./assets/fonts/wix-madefor-display/style.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: "SF Pro Display", sans-serif;
+    font-family: "Wix Madefor Display", sans-serif;
 }
 
 .lds-spinner {

@@ -6,7 +6,7 @@ interface BlockProps {
 
 export default function Block(props: BlockProps): JSX.Element {
   return (
-    <div className="bg-white rounded-2xl px-5 py-3">
+    <div className="bg-white rounded-2xl shadow-sm px-5 py-3">
       {props.children}
     </div>
   );

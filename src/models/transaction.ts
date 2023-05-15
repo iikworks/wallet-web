@@ -11,3 +11,10 @@ export type Transaction = {
   date: Date;
   created_at: Date;
 };
+
+export type MonthlyTransactionStatistic = {
+  month: string,
+  currency: string,
+  topup_total: number,
+  withdrawal_total: number,
+};

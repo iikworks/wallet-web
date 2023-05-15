@@ -9,7 +9,7 @@ type AccountBlockProps = {
 
 export default function AccountBlock(props: AccountBlockProps) {
   return (
-    <div className="bg-white rounded-2xl h-28 py-3 px-5">
+    <div className="bg-white rounded-2xl shadow-sm h-28 py-3 px-5">
       <div className="flex flex-col justify-between">
         <div className="flex justify-between items-center">
           <div className="text-gray-500 font-medium">

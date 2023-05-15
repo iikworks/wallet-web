@@ -15,6 +15,7 @@ import {Account} from "../models/account.ts";
 import {Organization} from "../models/organization.ts";
 import GrayInfoMessage from "../components/info-messages/gray-info-message.tsx";
 import ThreeGridBlock from "../components/page-struct/three-grid-block.tsx";
+import {MonthlyBarChart} from "../components/statistic/MontlyBarChart.tsx";
 
 export default function Dashboard(): JSX.Element {
   const [statistics, setStatistics] = useState<DashboardResponse>({
@@ -38,6 +39,7 @@ export default function Dashboard(): JSX.Element {
         sum_replenishments_at_this_month: 0,
         sum_expenses_at_this_month: 0,
         count: 0,
+        statistics_by_month: [],
       },
       subscriptions: {
         list: [],
@@ -84,6 +86,13 @@ export default function Dashboard(): JSX.Element {
             </div>
           </Block>
         </div>
+        <BlockHeader title="Сумма операций по месяцам"
+                     classes="mt-7" />
+        <Block>
+          <div className="max-h-72">
+            <MonthlyBarChart statistics={statistics.data.transactions.statistics_by_month} />
+          </div>
+        </Block>
         <BlockHeader title="Счета"
                      classes="mt-7"
                      link={<PlusButton link="/accounts/add" />} />

@@ -11,7 +11,7 @@ import {useContext, useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {Context} from "../main.tsx";
 import {currencyFormat} from "../functions.ts";
-import LogoImage from "../assets/images/logo-white.png";
+import LogoImage from "../assets/images/logo-gradient.png";
 
 export default function Sidebar(): JSX.Element {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -21,20 +21,20 @@ export default function Sidebar(): JSX.Element {
 
   const menu: SidebarMenu[] = [
     {
-      icon: <ChartBarSquareIcon className="h-5 w-5 text-gray-300" />,
+      icon: <ChartBarSquareIcon className="h-5 w-5" />,
       title: 'Главная',
       link: '/',
     }, {
-      icon: <QrCodeIcon className="h-5 w-5 text-gray-300" />,
+      icon: <QrCodeIcon className="h-5 w-5" />,
       title: 'Транзакции',
       link: '/transactions',
     }, {
-      icon: <WalletIcon className="h-5 w-5 text-gray-300" />,
+      icon: <WalletIcon className="h-5 w-5" />,
       title: 'Счета',
       link: '/accounts',
     },
     {
-      icon: <CreditCardIcon className="h-5 w-5 text-gray-300" />,
+      icon: <CreditCardIcon className="h-5 w-5" />,
       title: 'Подписки',
       link: '/subscriptions',
     },
@@ -42,11 +42,11 @@ export default function Sidebar(): JSX.Element {
 
   const adminMenu: SidebarMenu[] = [
     {
-      icon: <BuildingOffice2Icon className="h-5 w-5 text-gray-300" />,
+      icon: <BuildingOffice2Icon className="h-5 w-5" />,
       title: 'Организации',
       link: '/organizations',
     }, {
-      icon: <BuildingLibraryIcon className="h-5 w-5 text-gray-300" />,
+      icon: <BuildingLibraryIcon className="h-5 w-5" />,
       title: 'Банки',
       link: '/banks',
     },
@@ -73,29 +73,29 @@ export default function Sidebar(): JSX.Element {
 
   return (
     <>
-      <nav className={`flex flex-col justify-between bg-gray-800 ${opened ? 'w-72' : 'w-16 sm:w-24'} text-white h-max min-h-screen transition-all`}>
-        <div className="space-y-3 px-2 sm:px-5 py-4">
+      <nav className={`flex flex-col justify-between bg-white ${opened ? 'w-72' : 'w-16 sm:w-24'} h-max min-h-screen transition-all`}>
+        <div className="space-y-3 px-2 v sm:px-5 py-4">
           {store.user &&<div className={`flex gap-3 ${opened ? 'items-center' : 'justify-center'} overflow-hidden`}>
             <img src={LogoImage} className="h-12 w-12" alt="Wallet" />
             {opened &&<div>
               <div className="font-medium whitespace-nowrap">{`${store.user.first_name} ${store.user.last_name}`}</div>
-              <div className="leading-3 text-gray-400 font-medium whitespace-nowrap">
+              <div className="leading-3 text-gray-600 font-medium whitespace-nowrap">
                 {currencyFormat(store.user.currency, store.user.balance)}
               </div>
             </div>}
           </div>}
           <button
             onClick={handleLogout}
-            className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-red-500 bg-opacity-70 rounded-md px-4 hover:bg-red-500 transition`}>
-            <ArrowRightOnRectangleIcon className="h-5 w-5 text-gray-300" />
+            className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-red-400 text-red-800 rounded-md px-4 hover:bg-red-500 transition`}>
+            <ArrowRightOnRectangleIcon className="h-5 w-5" />
             {opened ? 'Выйти' : ''}
           </button>
-          <div className="h-0.5 bg-gray-700 rounded-2xl"></div>
+          <div className="h-0.5 bg-gray-200 rounded-2xl"></div>
           <div className="space-y-2 overflow-y-auto">
             {menu.map(element => {
               return (
                 <Link key={element.link} to={element.link}
-                      className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-700 rounded-md px-4 hover:bg-gray-600 transition`}>
+                      className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-200 rounded-md px-4 hover:bg-gray-300 transition`}>
                   {element.icon}
                   {opened ? element.title : ''}
                 </Link>
@@ -105,7 +105,7 @@ export default function Sidebar(): JSX.Element {
               {adminMenu.map(element => {
                 return (
                   <Link key={element.link} to={element.link}
-                        className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-700 rounded-md px-4 hover:bg-gray-600 transition`}>
+                        className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-200 rounded-md px-4 hover:bg-gray-300 transition`}>
                     {element.icon}
                     {opened ? element.title : ''}
                   </Link>
@@ -115,12 +115,12 @@ export default function Sidebar(): JSX.Element {
           </div>
         </div>
         <div className="px-5 pb-5">
-          {opened &&<div className="text-center whitespace-nowrap mb-4 text-gray-300 font-extralight">
-              © 2023, <span className="font-medium text-gray-200">Наликбай</span>
+          {opened &&<div className="text-center whitespace-nowrap mb-4 font-extralight">
+              © 2023, <span className="font-medium">Наликбай</span>
           </div>}
-          <button onClick={() => setOpened(!opened)} className={`flex ${opened ? 'items-center' : 'justify-center'} font-medium gap-2 w-full bg-gray-700 rounded-md py-2 px-4 hover:bg-gray-600 transition`}>
-            {opened &&<ArrowSmallLeftIcon className="h-5 w-5 text-gray-300" />}
-            {!opened &&<ArrowSmallRightIcon className="h-5 w-5 text-gray-300" />}
+          <button onClick={() => setOpened(!opened)} className={`flex ${opened ? 'items-center' : 'justify-center'} font-medium gap-2 w-full bg-gray-200 rounded-md py-2 px-4 hover:bg-gray-300 transition`}>
+            {opened &&<ArrowSmallLeftIcon className="h-5 w-5" />}
+            {!opened &&<ArrowSmallRightIcon className="h-5 w-5" />}
           </button>
         </div>
       </nav>

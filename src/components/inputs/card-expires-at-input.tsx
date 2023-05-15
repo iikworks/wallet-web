@@ -24,7 +24,7 @@ export default function CardExpiresAtInput(props: CardNumberInputProps) {
         type="text"
         name={props.name}
         id={props.name}
-        className="mt-1 py-1.5 px-2.5 block rounded-lg border-transparent bg-gray-200 w-full"
+        className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-transparent bg-gray-200 w-full"
         ref={ref}
         inputRef={inputRef}
         placeholder={props.placeholder}
@@ -33,7 +33,7 @@ export default function CardExpiresAtInput(props: CardNumberInputProps) {
         onInput={props.onChange}
         value={props.value}
       />
-      {props.error !== '' &&<div className="font-medium text-red-500 text-sm ml-3 mt-0.5">
+      {props.error !== '' &&<div className="font-medium text-red-500 text-xs ml-3 mt-0.5">
         {props.error}
       </div>}
     </div>

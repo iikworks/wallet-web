@@ -18,9 +18,9 @@ export default function TransactionTableRow(props: TableRowProps) {
           {moment(props.transaction.date).format('HH:mm')}
         </div>
       </td>
-      <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
+      <td className="px-5 md:px-5 py-3 md:py-3 leading-4 w-full md:w-1/2 lg:w-1/4">
         <div>{props.transaction.organization.title}</div>
-        <div className="leading-4 text-gray-500">
+        <div className="text-gray-500">
           {props.transaction.organization.vulgar_title}
         </div>
       </td>
@@ -29,7 +29,7 @@ export default function TransactionTableRow(props: TableRowProps) {
                         details={props.transaction.account.details} />
       </td>
       <td className="px-5 md:px-7 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
-        <span className=" text-red-500 ">
+        <span className=" text-red-500 text-base ">
             <CurrencyAmount amount={props.transaction.amount}
                             currency={props.transaction.account.currency}
                             type={props.transaction.type} />

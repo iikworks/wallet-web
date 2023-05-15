@@ -9,7 +9,7 @@ type SubscriptionBlockProps = {
 export default function SubscriptionBlock(props: SubscriptionBlockProps) {
   const daysString = declOfNum(props.subscription.next_payment_in, ['день', 'дня', 'дней']);
   return (
-    <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl py-3 px-4">
+    <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl shadow-sm py-3 px-4">
       <div className="flex justify-between items-center">
         <div className="text-gray-200 text-base font-medium">
           {strLimit(props.subscription.organization.title, 20)}

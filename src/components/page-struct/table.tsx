@@ -14,7 +14,7 @@ type TableProps = {
 
 export default function Table(props: TableProps) {
   return (
-    <div className="relative bg-white rounded-2xl overflow-x-auto">
+    <div className="relative bg-white rounded-2xl shadow-sm overflow-x-auto">
       <table className="w-full text-left">
         <tbody>
           {props.children}
