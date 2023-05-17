@@ -36,8 +36,6 @@ export default function Dashboard(): JSX.Element {
           date: new Date,
           created_at: new Date,
         },
-        sum_replenishments_at_this_month: 0,
-        sum_expenses_at_this_month: 0,
         count: 0,
         statistics_by_month: [],
       },
@@ -74,7 +72,7 @@ export default function Dashboard(): JSX.Element {
             <div className="text-lg font-medium leading-5">
                 <CurrencyAmount currency={store.user.currency}
                                 type={CONSTANTS.EXPENSE_TYPE}
-                                amount={statistics.data.transactions.sum_expenses_at_this_month} />
+                                amount={statistics.data.transactions.statistics_by_month.length > 0 ? statistics.data.transactions.statistics_by_month[0].withdrawal_total : 0} />
             </div>
           </Block>
           <Block>
@@ -82,7 +80,7 @@ export default function Dashboard(): JSX.Element {
             <div className="text-lg font-medium leading-5">
                 <CurrencyAmount currency={store.user.currency}
                                 type={CONSTANTS.REPLENISHMENT_TYPE}
-                                amount={statistics.data.transactions.sum_replenishments_at_this_month}/>
+                                amount={statistics.data.transactions.statistics_by_month.length > 0 ? statistics.data.transactions.statistics_by_month[0].topup_total : 0}/>
             </div>
           </Block>
         </div>

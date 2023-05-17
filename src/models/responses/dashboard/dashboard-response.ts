@@ -13,8 +13,6 @@ export type DashboardResponse = {
       latest: Transaction[];
       latest_first: Transaction;
       count: number;
-      sum_expenses_at_this_month: number;
-      sum_replenishments_at_this_month: number;
       statistics_by_month: MonthlyTransactionStatistic[],
     };
     subscriptions: {
