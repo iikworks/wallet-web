@@ -106,12 +106,12 @@ export function MonthlyBarChart(props: MonthlyBarChartProps) {
       {
         label: 'Списания',
         data: props.statistics.map(statistic => statistic.withdrawal_total),
-        backgroundColor: 'rgba(251, 113, 133, 0.5)',
+        backgroundColor: 'rgba(251, 146, 60, 0.5)',
       },
       {
         label: 'Пополнения',
         data: props.statistics.map(statistic => statistic.topup_total),
-        backgroundColor: 'rgba(52, 211, 153, 0.5)',
+        backgroundColor: 'rgba(96, 165, 250, 0.5)',
       },
     ],
   };

@@ -20,7 +20,7 @@ export default function Pagination(props: PaginationProps) {
             return (
               <div key={index}>
                 <Link to={!link.active ? `?page=${index + 1}` : '#'}
-                      className={`bg-gray-200 py-1 px-2.5 rounded-lg font-medium ${!link.active ? 'hover:bg-gray-300 transition' : 'opacity-50 cursor-default'}`}>
+                      className={`bg-gray-200 py-1 px-2.5 rounded-2xl font-medium ${!link.active ? 'hover:bg-gray-300 transition' : 'opacity-50 cursor-default'}`}>
                   {link.label}
                 </Link>
               </div>
