@@ -24,7 +24,7 @@ export default function CardNumberInput(props: CardNumberInputProps) {
         type="text"
         name={props.name}
         id={props.name}
-        className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-transparent bg-gray-200 w-full"
+        className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-none focus:ring-0 bg-gray-200 focus:bg-gray-300 w-full"
         ref={ref}
         inputRef={inputRef}
         placeholder={props.placeholder}

@@ -86,16 +86,16 @@ export default function Sidebar(): JSX.Element {
           </div>}
           <button
             onClick={handleLogout}
-            className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-red-400 text-red-800 rounded-md px-4 hover:bg-red-500 transition`}>
+            className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-rose-500 dark:bg-rose-700 bg-opacity-50 dark:bg-opacity-20 hover:bg-opacity-70 dark:hover:bg-opacity-30 text-red-800 dark:text-red-500 rounded-md px-4 transition`}>
             <ArrowRightOnRectangleIcon className="h-5 w-5" />
             {opened ? 'Выйти' : ''}
           </button>
-          <div className="h-0.5 bg-gray-200 rounded-2xl"></div>
+          <div className="h-0.5 bg-gray-200 dark:bg-gray-700 rounded-2xl"></div>
           <div className="space-y-2 overflow-y-auto">
             {menu.map(element => {
               return (
                 <Link key={element.link} to={element.link}
-                      className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-200 rounded-md px-4 hover:bg-gray-300 transition`}>
+                      className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-md px-4 hover:bg-gray-300 transition`}>
                   {element.icon}
                   {opened ? element.title : ''}
                 </Link>
@@ -105,7 +105,7 @@ export default function Sidebar(): JSX.Element {
               {adminMenu.map(element => {
                 return (
                   <Link key={element.link} to={element.link}
-                        className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-200 rounded-md px-4 hover:bg-gray-300 transition`}>
+                        className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-md px-4 hover:bg-gray-300 transition`}>
                     {element.icon}
                     {opened ? element.title : ''}
                   </Link>
@@ -118,7 +118,7 @@ export default function Sidebar(): JSX.Element {
           {opened &&<div className="text-center whitespace-nowrap mb-4 font-extralight">
               © 2023, <span className="font-medium">Наликбай</span>
           </div>}
-          <button onClick={() => setOpened(!opened)} className={`flex ${opened ? 'items-center' : 'justify-center'} font-medium gap-2 w-full bg-gray-200 rounded-md py-2 px-4 hover:bg-gray-300 transition`}>
+          <button onClick={() => setOpened(!opened)} className={`flex ${opened ? 'items-center' : 'justify-center'} font-medium gap-2 w-full bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-md py-2 px-4 hover:bg-gray-300 transition`}>
             {opened &&<ArrowSmallLeftIcon className="h-5 w-5" />}
             {!opened &&<ArrowSmallRightIcon className="h-5 w-5" />}
           </button>

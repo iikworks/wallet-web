@@ -21,7 +21,7 @@ export default function TextInput(props: TextInputProps) {
       {props.title &&<label htmlFor={props.name} className="ml-2.5">{props.title}</label>}
       <input type={props.type}
              id={props.name}
-             className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-transparent bg-gray-200 w-full"
+             className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-none focus:ring-0 bg-gray-200 focus:bg-gray-300 w-full"
              name={props.name}
              placeholder={props.placeholder}
              required={props.required}

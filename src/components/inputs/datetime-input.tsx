@@ -17,7 +17,7 @@ export default function DatetimeInput(props: DatetimeInputProps) {
       {props.title &&<label htmlFor={props.name} className="ml-2.5">{props.title}</label>}
       <input type="datetime-local"
              id={props.name}
-             className="mt-1 pt-1.5 pb-0 px-2.5 block rounded-lg text-sm border-transparent bg-gray-200 w-full"
+             className="mt-1 pt-1.5 pb-0 px-2.5 block rounded-lg text-sm border-none focus:ring-0 bg-gray-200 focus:bg-gray-300 w-full"
              name={props.name}
              placeholder={props.placeholder}
              required={props.required}

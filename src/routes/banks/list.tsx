@@ -53,7 +53,7 @@ export default function BanksList() {
               <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                 <div className="flex justify-end">
                   <Link to={`/banks/${bank.id}`}>
-                    <PencilSquareIcon className="w-6 h-6 hover:text-blue-500 transition" />
+                    <PencilSquareIcon className="w-6 h-6 hover:text-blue-400 transition" />
                   </Link>
                 </div>
               </td>
