@@ -9,10 +9,11 @@ import Pagination from "../../components/pagination.tsx";
 import {Account} from "../../models/account.ts";
 import AccountsService from "../../services/AccountsService.ts";
 import AccountBlock from "../../components/accounts/account-block.tsx";
+import Loading from "../../components/loading.tsx";
 
 export default function AccountsList(): JSX.Element {
   const location = useLocation();
-  const [accounts, setAccounts] = useState<Account[]>([]);
+  const [accounts, setAccounts] = useState<Account[] | null>(null);
   const [meta, setMeta] = useState<PaginationMeta>(StockPaginationMeta())
 
   const fetchAccounts = async (page: number) => {
@@ -34,19 +35,22 @@ export default function AccountsList(): JSX.Element {
 
   return (
     <>
-      <BlockHeader title="Все счета"
-                   link={<PlusButton link="/accounts/add" />} />
-      {meta.total === 0 &&<GrayInfoMessage message="У Вас пока нет счетов." />}
-      <ThreeGridBlock>
-        {accounts.map(account => {
-          return (
-            <AccountBlock key={account.id} account={account} />
-          );
-        })}
-      </ThreeGridBlock>
-      {meta.last_page > 1 &&<div className="bg-white rounded-2xl py-3 px-4 mt-3">
-        <Pagination meta={meta} />
-      </div>}
+      {accounts === null &&<Loading />}
+      {accounts !== null &&<>
+        <BlockHeader title="Все счета"
+                       link={<PlusButton link="/accounts/add" />} />
+        {meta.total === 0 &&<GrayInfoMessage message="У Вас пока нет счетов." />}
+          <ThreeGridBlock>
+            {accounts.map(account => {
+              return (
+                <AccountBlock key={account.id} account={account} />
+              );
+            })}
+          </ThreeGridBlock>
+        {meta.last_page > 1 &&<div className="bg-white rounded-2xl py-3 px-4 mt-3">
+            <Pagination meta={meta} />
+        </div>}
+      </>}
     </>
   )
 }

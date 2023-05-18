@@ -7,10 +7,11 @@ import {Transaction} from "../../models/transaction.ts";
 import {PaginationMeta, StockPaginationMeta} from "../../models/pagination-meta.ts";
 import TransactionsService from "../../services/TransactionsService.ts";
 import {useLocation} from "react-router-dom";
+import Loading from "../../components/loading.tsx";
 
 export default function TransactionsList(): JSX.Element {
   const location = useLocation();
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [transactions, setTransactions] = useState<Transaction[] | null>(null);
   const [meta, setMeta] = useState<PaginationMeta>(StockPaginationMeta())
 
   const fetchTransactions = async (page: number) => {
@@ -36,10 +37,13 @@ export default function TransactionsList(): JSX.Element {
 
   return (
     <>
-      <BlockHeader title="Все транзакции"
-                   link={<PlusButton link="/transactions/add" />} />
-      {meta.total === 0 &&<GrayInfoMessage message="У Вас пока нет транзакций." />}
-      {meta.total > 0 &&<TransactionsTable paginate={meta} transactions={transactions} />}
+      {transactions === null &&<Loading />}
+      {transactions !== null&&<>
+          <BlockHeader title="Все транзакции"
+                       link={<PlusButton link="/transactions/add" />} />
+        {meta.total === 0 &&<GrayInfoMessage message="У Вас пока нет транзакций." />}
+        {meta.total > 0 &&<TransactionsTable paginate={meta} transactions={transactions} />}
+      </>}
     </>
   )
 }

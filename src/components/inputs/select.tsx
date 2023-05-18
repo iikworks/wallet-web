@@ -101,7 +101,7 @@ export default function Select(props: SelectProps) {
             нет доступных опций для выбора
         </div>}
       </div>}
-      {props.error !== '' &&<div className="font-medium text-red-500 text-sm ml-3 mt-0.5">
+      {props.error !== '' &&<div className="font-medium text-red-500 text-xs ml-3 mt-0.5">
         {props.error}
       </div>}
     </div>

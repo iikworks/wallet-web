@@ -86,7 +86,7 @@ export default function Sidebar(): JSX.Element {
           </div>}
           <button
             onClick={handleLogout}
-            className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-rose-500 dark:bg-rose-700 bg-opacity-50 dark:bg-opacity-20 hover:bg-opacity-70 dark:hover:bg-opacity-30 text-red-800 dark:text-red-500 rounded-md px-4 transition`}>
+            className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full bg-orange-500 dark:bg-orange-700 bg-opacity-50 dark:bg-opacity-20 hover:bg-opacity-70 dark:hover:bg-opacity-30 text-red-800 dark:text-red-500 rounded-md px-4 transition`}>
             <ArrowRightOnRectangleIcon className="h-5 w-5" />
             {opened ? 'Выйти' : ''}
           </button>
