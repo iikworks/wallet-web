@@ -9,7 +9,7 @@ type CurrencyAmountProps = {
 
 export default function CurrencyAmount(props: CurrencyAmountProps) {
   return (
-    <span className="text-flame-sea">
+    <span className={props.type === CONSTANTS.EXPENSE_TYPE ? "text-red-400" : "text-green-400"}>
       {props.type === CONSTANTS.REPLENISHMENT_TYPE ? '+' : '-'}{currencyFormat(props.currency, props.amount)}
     </span>
   );

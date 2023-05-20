@@ -32,7 +32,7 @@ export default function Dashboard(): JSX.Element {
         {statistics !== null &&<>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 <Block>
-                    <div className="text-sapling-dark-shade-2 font-medium">Последняя транзакция</div>
+                    <div className="text-gray-200 font-medium">Последняя транзакция</div>
                     <div className="text-lg font-medium leading-5">
                         <CurrencyAmount currency={statistics.data.transactions.latest_first.account.currency}
                                         type={statistics.data.transactions.latest_first.type}
@@ -43,7 +43,7 @@ export default function Dashboard(): JSX.Element {
             <BlockHeader title="Сумма операций по месяцам"
                          classes="mt-7" />
             <Block>
-                <div className="max-h-72">
+                <div className="max-h-72 text-gray-200">
                     <MonthlyBarChart statistics={statistics.data.transactions.statistics_by_month} />
                 </div>
             </Block>

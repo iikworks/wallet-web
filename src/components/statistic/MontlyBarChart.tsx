@@ -28,14 +28,30 @@ type MonthlyBarChartProps = {
 export function MonthlyBarChart(props: MonthlyBarChartProps) {
   const options = {
     responsive: true,
+    color: '#ffffff',
+    scales: {
+      x: {
+        ticks: {
+          color: '#ffffff',
+          family: "Wix Madefor Display"
+        },
+      },
+      y: {
+        ticks: {
+          color: '#ffffff',
+          family: "Wix Madefor Display"
+        },
+      },
+    },
     plugins: {
       legend: {
         position: 'top' as const,
         labels: {
           font: {
+            color: '#ffffff',
             family: "Wix Madefor Display"
           }
-        }
+        },
       },
       tooltip: {
         callbacks: {
@@ -106,12 +122,12 @@ export function MonthlyBarChart(props: MonthlyBarChartProps) {
       {
         label: 'Списания',
         data: props.statistics.map(statistic => statistic.withdrawal_total),
-        backgroundColor: 'rgba(225, 90, 56, 0.5)',
+        backgroundColor: 'rgba(248, 113, 113, 0.5)',
       },
       {
         label: 'Пополнения',
         data: props.statistics.map(statistic => statistic.topup_total),
-        backgroundColor: 'rgba(173, 150, 91, 0.5)',
+        backgroundColor: 'rgb(74, 222, 128, 0.5)',
       },
     ],
   };

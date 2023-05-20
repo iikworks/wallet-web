@@ -46,7 +46,7 @@ export default function OrganizationsList() {
           <Table paginate={meta}>
             {organizations.map(organization => {
               return (
-                <tr key={organization.id} className="font-medium flex flex-wrap text-sapling-dark-shade-2 lg:table-row border-b-2 md:border-b border-sapling">
+                <tr key={organization.id} className="font-medium flex flex-wrap text-gray-200 lg:table-row border-b-2 md:border-b border-east-bay">
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     {organization.id}
                   </td>
@@ -57,12 +57,12 @@ export default function OrganizationsList() {
                   </td>
                   <td className="px-5 md:px-2 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     <div>{strLimit(organization.title, 20)}</div>
-                    <div className="font-normal text-sapling-dark-shade-1">{strLimit(organization.vulgar_title, 20)}</div>
+                    <div className="font-normal text-wild-blue-light-shade">{strLimit(organization.vulgar_title, 20)}</div>
                   </td>
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     <div className="flex justify-end">
                       <Link to={`/organizations/${organization.id}`}>
-                        <PencilSquareIcon className="w-6 h-6 hover:text-sapling-dark-shade-1 transition" />
+                        <PencilSquareIcon className="w-6 h-6 hover:text-wild-blue-light-shade transition" />
                       </Link>
                     </div>
                   </td>

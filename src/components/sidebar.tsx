@@ -65,23 +65,23 @@ export default function Sidebar(): JSX.Element {
 
   return (
     <>
-      <nav className={`flex flex-col justify-between bg-sapling-light-shade ${opened ? 'w-72' : 'w-16 sm:w-24'} h-max min-h-screen transition-all`}>
+      <nav className={`flex flex-col justify-between bg-east-bay-light-shade ${opened ? 'w-72' : 'w-16 sm:w-24'} h-max min-h-screen transition-all`}>
         <div className="space-y-3 px-2 v sm:px-5 py-4">
           {store.user &&<div className={`flex gap-3 ${opened ? 'items-center' : 'justify-center'} overflow-hidden`}>
-            <div className="h-12 w-12 bg-sapling rounded-full"></div>
+            <div className="h-12 w-12 bg-east-bay rounded-full"></div>
             {opened &&<div>
-              <div className="font-medium text-sapling-dark-shade-2 text-base whitespace-nowrap">{`${store.user.first_name} ${store.user.last_name}`}</div>
-              <div className="leading-3 text-flame-sea font-medium whitespace-nowrap">
+              <div className="font-semibold text-gray-200 text-base whitespace-nowrap">{`${store.user.first_name} ${store.user.last_name}`}</div>
+              <div className="leading-3 text-gray-300 font-medium whitespace-nowrap">
                 {currencyFormat(store.user.currency, store.user.balance)}
               </div>
             </div>}
           </div>}
-          <div className="h-0.5 bg-sapling rounded-xl"></div>
+          <div className="h-0.5 bg-east-bay rounded-xl"></div>
           <div className="space-y-2 overflow-y-auto">
             {menu.map(element => {
               return (
                 <Link key={element.link} to={element.link}
-                      className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full text-sapling-dark-shade-2 rounded-md px-4 hover:bg-sapling border border-sapling transition`}>
+                      className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full text-gray-200 rounded-md px-4 hover:bg-east-bay border border-east-bay transition`}>
                   {element.icon}
                   {opened ? element.title : ''}
                 </Link>
@@ -91,7 +91,7 @@ export default function Sidebar(): JSX.Element {
               {adminMenu.map(element => {
                 return (
                   <Link key={element.link} to={element.link}
-                        className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full text-sapling-dark-shade-2 rounded-md px-4 hover:bg-sapling border border-sapling transition`}>
+                        className={`flex items-center ${opened ? '' : 'justify-center'} whitespace-nowrap h-10 font-medium gap-2 w-full text-gray-200 rounded-md px-4 hover:bg-east-bay border border-east-bay transition`}>
                     {element.icon}
                     {opened ? element.title : ''}
                   </Link>
@@ -101,10 +101,10 @@ export default function Sidebar(): JSX.Element {
           </div>
         </div>
         <div className="px-5 pb-5">
-          {opened &&<div className="text-center text-sapling-dark-shade-2 whitespace-nowrap mb-4 font-extralight">
+          {opened &&<div className="text-center text-gray-200 whitespace-nowrap mb-4 font-extralight">
               © 2023, <span className="font-medium">Наликбай</span>
           </div>}
-          <button onClick={() => setOpened(!opened)} className={`flex ${opened ? 'items-center' : 'justify-center'} text-sapling-dark-shade-2 font-medium gap-2 w-full rounded-md py-2 px-4 hover:bg-sapling border border-sapling transition`}>
+          <button onClick={() => setOpened(!opened)} className={`flex ${opened ? 'items-center' : 'justify-center'} text-gray-200 font-medium gap-2 w-full rounded-md py-2 px-4 hover:bg-east-bay border border-east-bay transition`}>
             {opened &&<ArrowSmallLeftIcon className="h-5 w-5" />}
             {!opened &&<ArrowSmallRightIcon className="h-5 w-5" />}
           </button>

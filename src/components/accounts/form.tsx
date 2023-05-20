@@ -108,7 +108,7 @@ export default function AccountsForm(props: AccountsFormProps) {
               options={props.types}
               onChange={value => handleSelectChange('type', value)}
               title="Тип счета" />
-      {form.type === CONSTANTS.ACCOUNT_BANK_ACCOUNT_TYPE &&<div className="pt-3 border-y-2 border-sapling pb-3 space-y-4">
+      {form.type === CONSTANTS.ACCOUNT_BANK_ACCOUNT_TYPE &&<div className="pt-3 border-y-2 border-east-bay pb-3 space-y-4">
           <TextInput type="text"
                      name="account_number"
                      title="Номер счета"
@@ -124,7 +124,7 @@ export default function AccountsForm(props: AccountsFormProps) {
                   onChange={value => handleDetailsSelectChange('bank_id', value)}
                   title="Банк" />
       </div>}
-      {form.type === CONSTANTS.ACCOUNT_CARD_TYPE &&<div className="py-3 border-y-2 border-sapling space-y-4">
+      {form.type === CONSTANTS.ACCOUNT_CARD_TYPE &&<div className="py-3 border-y-2 border-east-bay space-y-4">
           <CardNumberInput name="card_number"
                            title="Номер карты"
                            placeholder="Введите номер карты"

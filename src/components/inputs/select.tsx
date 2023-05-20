@@ -82,26 +82,26 @@ export default function Select(props: SelectProps) {
 
   return (
     <div className="relative">
-      {props.title &&<label onClick={toggleOpened} htmlFor={props.name} className="ml-2.5 font-medium">{props.title}</label>}
+      {props.title &&<label onClick={toggleOpened} htmlFor={props.name} className="ml-2.5 text-gray-200 font-medium">{props.title}</label>}
       <input type="hidden" name={props.name} value={value} />
       <div onClick={toggleOpened} className={`mt-1 overflow-hidden rounded-t-lg cursor-pointer ${opened ? '' : 'rounded-b-lg'}`}>
         {!selectedOption &&<SelectOption title="&nbsp;" selected={true} subtitle="не выбрано" />}
         {selectedOption &&<SelectOption title={selectedOption.title} selected={true} subtitle={selectedOption.subtitle} />}
       </div>
-      {opened &&<div className="absolute bg-sapling shadow-xl z-10 overflow-x-hidden overflow-y-auto max-h-60 rounded-b-lg w-full">
+      {opened &&<div className="absolute bg-east-bay shadow-xl z-10 overflow-x-hidden overflow-y-auto max-h-60 rounded-b-lg w-full">
         <div>
             <input type="text"
                    placeholder="Поиск..."
                    value={searchQuery}
                    onChange={(event) => setSearchQuery(event.target.value)}
-                   className="w-full block bg-sapling-dark-shade-1 text-sm text-sapling-light-shade font-medium placeholder-sapling border-transparent focus:border-transparent focus:ring-0" />
+                   className="w-full block bg-east-bay-dark-shade-1 text-sm text-gray-200 font-medium placeholder-wild-blue-dark-shade-1 border-transparent focus:border-transparent focus:ring-0" />
         </div>
         <SelectOptionsRecursive level={0} options={options()} selectedOption={selectedOption} select={value => select(value)} />
-        {options().length === 0 &&<div className="px-4 py-2 text-sapling-dark-shade-2">
+        {options().length === 0 &&<div className="px-4 py-2 text-gray-300 font-medium">
             нет доступных опций для выбора
         </div>}
       </div>}
-      {props.error !== '' &&<div className="font-medium text-flame-sea text-xs ml-3 mt-0.5">
+      {props.error !== '' &&<div className="font-medium text-wild-blue text-xs ml-3 mt-0.5">
         {props.error}
       </div>}
     </div>
