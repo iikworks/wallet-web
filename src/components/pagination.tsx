@@ -13,14 +13,14 @@ export default function Pagination(props: PaginationProps) {
 
   return (
     <div>
-      Показано на странице: <span className="font-medium">{from}-{props.meta.to}</span> из <span className="font-medium">{props.meta.total}</span>
+      <div className="text-sapling-dark-shade-2">Показано на странице: <span className="font-medium">{from}-{props.meta.to}</span> из <span className="font-medium">{props.meta.total}</span></div>
       <div className="flex justify-center my-2">
         <div className="flex gap-2">
           {links.map((link, index) => {
             return (
               <div key={index}>
                 <Link to={!link.active ? `?page=${index + 1}` : '#'}
-                      className={`bg-gray-200 py-1 px-2.5 rounded-2xl font-medium ${!link.active ? 'hover:bg-gray-300 transition' : 'opacity-50 cursor-default'}`}>
+                      className={`bg-sapling text-sapling-dark-shade-2 py-1 px-2.5 rounded-xl font-medium ${!link.active ? 'hover:bg-sapling-dark-shade-1 hover:text-sapling-light-shade transition' : 'opacity-50 cursor-default'}`}>
                   {link.label}
                 </Link>
               </div>

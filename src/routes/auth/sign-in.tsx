@@ -5,12 +5,12 @@ import {Link} from "react-router-dom";
 export default function SignIn(): JSX.Element {
   return (
     <AuthLayout>
-      <div className="pt-2 text-center leading-5">
+      <div className="pt-2 text-center leading-5 text-sapling-dark-shade-2">
         Войдите в свой аккаунт, чтобы продолжить.
       </div>
       <SignInForm />
       <div className="mt-2">
-        Ещё нет аккаунта? <Link to="/register" className="text-blue-500 hover:text-blue-600 transition">Зарегистрироваться</Link>
+        Ещё нет аккаунта? <Link to="/register" className="text-sapling-dark-shade-2 hover:text-sapling-dark-shade-1 transition">Зарегистрироваться</Link>
       </div>
     </AuthLayout>
   )

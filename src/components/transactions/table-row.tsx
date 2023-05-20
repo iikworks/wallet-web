@@ -9,18 +9,18 @@ type TableRowProps = {
 
 export default function TransactionTableRow(props: TableRowProps) {
   return (
-    <tr className="font-medium flex flex-wrap lg:table-row border-b-2 md:border-b border-gray-200 md:border-gray-100">
+    <tr className="font-medium flex flex-wrap text-sapling-dark-shade-2 lg:table-row border-b-2 md:border-b border-sapling">
       <td className="px-5 md:px-4 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
         <div>
           {moment(props.transaction.date).format('DD.MM.YYYY')}
         </div>
-        <div className="leading-4 text-gray-500">
+        <div className="leading-4 text-sapling-dark-shade-1">
           {moment(props.transaction.date).format('HH:mm')}
         </div>
       </td>
       <td className="px-5 md:px-5 py-3 md:py-3 leading-4 w-full md:w-1/2 lg:w-1/4">
         <div>{props.transaction.organization.title}</div>
-        <div className="text-gray-500">
+        <div className="text-sapling-dark-shade-1">
           {props.transaction.organization.vulgar_title}
         </div>
       </td>

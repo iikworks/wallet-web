@@ -46,7 +46,7 @@ export default function BanksList() {
           <Table paginate={meta}>
             {banks.map(bank => {
               return (
-                <tr key={bank.id} className="font-medium flex flex-wrap lg:table-row border-b-2 md:border-b border-gray-200 md:border-gray-100">
+                <tr key={bank.id} className="font-medium flex flex-wrap text-sapling-dark-shade-2 lg:table-row border-b-2 md:border-b border-sapling">
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     {bank.id}
                   </td>
@@ -56,7 +56,7 @@ export default function BanksList() {
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     <div className="flex justify-end">
                       <Link to={`/banks/${bank.id}`}>
-                        <PencilSquareIcon className="w-6 h-6 hover:text-blue-400 transition" />
+                        <PencilSquareIcon className="w-6 h-6 hover:text-sapling-dark-shade-1 transition" />
                       </Link>
                     </div>
                   </td>

@@ -10,8 +10,8 @@ export default function Button(props: ButtonProps) {
   return (
     <button
       disabled={props.loading}
-      className={`bg-blue-400 flex justify-center items-center gap-2 text-white font-medium w-full py-2 rounded-lg
-      ${props.loading ? 'opacity-50' : 'hover:bg-blue-500 transition'}
+      className={`bg-flame-sea flex justify-center items-center gap-2 text-white font-medium w-full py-2 rounded-lg
+      ${props.loading ? 'opacity-50' : 'hover:bg-flame-sea-light-shade transition'}
       ${props.classes}`}
     >
       {props.loading &&<RotatingLines

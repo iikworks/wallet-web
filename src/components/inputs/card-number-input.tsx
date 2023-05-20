@@ -18,13 +18,13 @@ export default function CardNumberInput(props: CardNumberInputProps) {
 
   return (
     <div>
-      {props.title &&<label htmlFor={props.name} className="ml-2.5">{props.title}</label>}
+      {props.title &&<label htmlFor={props.name} className="ml-2.5 font-medium">{props.title}</label>}
       <IMaskInput
         mask="0000 0000 0000 0000"
         type="text"
         name={props.name}
         id={props.name}
-        className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-none focus:ring-0 bg-gray-200 focus:bg-gray-300 w-full"
+        className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-none focus:ring-0 text-sapling-dark-shade-2 placeholder-sapling-dark-shade-1 font-medium bg-sapling w-full"
         ref={ref}
         inputRef={inputRef}
         placeholder={props.placeholder}
@@ -33,7 +33,7 @@ export default function CardNumberInput(props: CardNumberInputProps) {
         onInput={props.onChange}
         value={props.value}
       />
-      {props.error !== '' &&<div className="font-medium text-red-500 text-xs ml-3 mt-0.5">
+      {props.error !== '' &&<div className="font-medium text-flame-sea text-xs ml-3 mt-0.5">
         {props.error}
       </div>}
     </div>

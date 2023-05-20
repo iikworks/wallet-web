@@ -1,10 +1,8 @@
 import Block from "../components/block.tsx";
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import StatisticsService from "../services/StatisticsService.ts";
 import {DashboardResponse} from "../models/responses/dashboard/dashboard-response.ts";
-import {Context} from "../main.tsx";
 import CurrencyAmount from "../components/currency/amount.tsx";
-import {CONSTANTS} from "../constants.ts";
 import AccountBlock from "../components/accounts/account-block.tsx";
 import SubscriptionBlock from "../components/subscriptions/subscription-block.tsx";
 import BlockHeader from "../components/page-struct/block-header.tsx";
@@ -18,7 +16,6 @@ import Loading from "../components/loading.tsx";
 
 export default function Dashboard(): JSX.Element {
   const [statistics, setStatistics] = useState<DashboardResponse | null>(null)
-  const { store } = useContext(Context);
 
   const fetchDashboard = async () => {
     const response = await StatisticsService.dashboard();
@@ -35,27 +32,11 @@ export default function Dashboard(): JSX.Element {
         {statistics !== null &&<>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 <Block>
-                    <div className="text-gray-600">Последняя транзакция</div>
+                    <div className="text-sapling-dark-shade-2 font-medium">Последняя транзакция</div>
                     <div className="text-lg font-medium leading-5">
                         <CurrencyAmount currency={statistics.data.transactions.latest_first.account.currency}
                                         type={statistics.data.transactions.latest_first.type}
                                         amount={statistics.data.transactions.latest_first.amount} />
-                    </div>
-                </Block>
-                <Block>
-                    <div className="text-gray-600">Расход за этот месяц</div>
-                    <div className="text-lg font-medium leading-5">
-                        <CurrencyAmount currency={store.user.currency}
-                                        type={CONSTANTS.EXPENSE_TYPE}
-                                        amount={statistics.data.transactions.statistics_by_month.length > 0 ? statistics.data.transactions.statistics_by_month[0].withdrawal_total : 0} />
-                    </div>
-                </Block>
-                <Block>
-                    <div className="text-gray-600">Приход за этот месяц</div>
-                    <div className="text-lg font-medium leading-5">
-                        <CurrencyAmount currency={store.user.currency}
-                                        type={CONSTANTS.REPLENISHMENT_TYPE}
-                                        amount={statistics.data.transactions.statistics_by_month.length > 0 ? statistics.data.transactions.statistics_by_month[0].topup_total : 0}/>
                     </div>
                 </Block>
             </div>

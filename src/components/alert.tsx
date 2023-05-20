@@ -11,7 +11,7 @@ export default function Alert() {
   if (text && type) {
     return (
       <div className="fixed z-50 top-6 right-6">
-        <div className={`cursor-pointer max-w-sm backdrop-blur font-medium py-2 px-4 rounded-2xl ${colorClasses[type]}`}>
+        <div className={`cursor-pointer max-w-sm backdrop-blur font-medium py-2 px-4 rounded-xl ${colorClasses[type]}`}>
           {text}
         </div>
       </div>

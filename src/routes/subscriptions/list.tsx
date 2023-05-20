@@ -47,7 +47,7 @@ export default function SubscriptionsList(): JSX.Element {
               );
             })}
           </ThreeGridBlock>
-        {meta.last_page > 1 &&<div className="bg-white rounded-2xl py-3 px-4 mt-3">
+        {meta.last_page > 1 &&<div className="bg-white rounded-xl py-3 px-4 mt-3">
             <Pagination meta={meta} />
         </div>}
       </>}
