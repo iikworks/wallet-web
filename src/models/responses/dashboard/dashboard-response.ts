@@ -2,8 +2,16 @@ import {Account} from "../../account.ts";
 import {MonthlyTransactionStatistic, Transaction} from "../../transaction.ts";
 import {Subscription} from "../../subscription.ts";
 
+export type ExchangeRate = {
+  from: string;
+  to: string;
+  rate: number;
+  updated_at: Date;
+};
+
 export type DashboardResponse = {
   data: {
+    exchange_rates: ExchangeRate[];
     has_other_currencies: boolean;
     accounts: {
       list: Account[];

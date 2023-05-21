@@ -25,7 +25,7 @@ export default function SubscriptionBlock(props: SubscriptionBlockProps) {
         <div className="text-sm text-gray-200">
           <AccountDetails type={props.subscription.account.type} details={props.subscription.account.details} />
         </div>
-        <div className="text-xl text-gray-200 font-medium">
+        <div className="text-xl text-gray-200 font-semibold">
           {currencyFormat(props.subscription.currency, props.subscription.amount)}
         </div>
       </div>

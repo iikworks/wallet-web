@@ -13,6 +13,8 @@ import GrayInfoMessage from "../components/info-messages/gray-info-message.tsx";
 import ThreeGridBlock from "../components/page-struct/three-grid-block.tsx";
 import {MonthlyBarChart} from "../components/statistic/MontlyBarChart.tsx";
 import Loading from "../components/loading.tsx";
+import {currencyFormat, declOfNum} from "../functions.ts";
+import moment from "moment";
 
 export default function Dashboard(): JSX.Element {
   const [statistics, setStatistics] = useState<DashboardResponse | null>(null)
@@ -33,20 +35,43 @@ export default function Dashboard(): JSX.Element {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 <Block>
                     <div className="text-gray-200 font-medium">Последняя транзакция</div>
-                    <div className="text-lg font-medium leading-5">
+                    <div className="text-lg font-semibold leading-5">
                         <CurrencyAmount currency={statistics.data.transactions.latest_first.account.currency}
                                         type={statistics.data.transactions.latest_first.type}
                                         amount={statistics.data.transactions.latest_first.amount} />
                     </div>
                 </Block>
             </div>
-            <BlockHeader title="Сумма операций по месяцам"
+            <BlockHeader title="Курсы"
                          classes="mt-7" />
-            <Block>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {statistics.data.exchange_rates.map(exchangeRate => {
+                const minutes = Math.abs(moment(exchangeRate.updated_at).diff(moment(), 'minute'))
+
+                return (
+                  <Block>
+                    <div className="flex items-center justify-between">
+                      <div className="text-gray-200 font-medium">{exchangeRate.to}</div>
+                      <div className="text-wild-blue-light-shade text-xs font-medium">
+                        {minutes} {declOfNum(minutes, ['минуту', 'минуты', 'минут'])} назад
+                      </div>
+                    </div>
+                    <div className="text-lg text-blue-400 font-semibold leading-5">
+                      {currencyFormat(exchangeRate.from, exchangeRate.rate, 4)}
+                    </div>
+                  </Block>
+                );
+              })}
+            </div>
+            {statistics.data.transactions.statistics_by_month.length > 0 &&<>
+              <BlockHeader title="Сумма операций по месяцам"
+                           classes="mt-7" />
+              <Block>
                 <div className="max-h-72 text-gray-200">
-                    <MonthlyBarChart statistics={statistics.data.transactions.statistics_by_month} />
+                  <MonthlyBarChart statistics={statistics.data.transactions.statistics_by_month} />
                 </div>
-            </Block>
+              </Block>
+            </>}
             <BlockHeader title="Счета"
                          classes="mt-7"
                          link={<PlusButton link="/accounts/add" />} />

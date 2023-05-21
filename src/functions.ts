@@ -21,10 +21,10 @@ export function declOfNum(number: number, titles: string[]): string {
     ];
 }
 
-export function currencyFormat(currency: string, number: number): string {
+export function currencyFormat(currency: string, number: number, digits = 2): string {
   const toLocaleStringOptions = {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
   };
 
   if (currency === 'BYN') return `${number.toLocaleString('ru-RU', toLocaleStringOptions)} BYN`

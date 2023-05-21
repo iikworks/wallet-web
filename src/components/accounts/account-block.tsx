@@ -18,7 +18,7 @@ export default function AccountBlock(props: AccountBlockProps) {
             {props.account.type === CONSTANTS.ACCOUNT_BANK_ACCOUNT_TYPE &&<>Банковский счёт</>}
           </div>
           <div className="flex leading-5 justify-between items-center">
-            <div className="text-xl font-medium text-gray-200">
+            <div className="text-xl font-semibold text-gray-200">
               {currencyFormat(props.account.currency, props.account.balance)}
             </div>
           </div>
