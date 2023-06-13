@@ -1,4 +1,4 @@
-import LogoImage from '../assets/images/logo-white.png';
+import LogoImage from '../assets/images/logo-gradient.png';
 
 export default function Logo() {
   return (

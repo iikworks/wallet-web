@@ -34,8 +34,8 @@ export default function Dashboard(): JSX.Element {
         {statistics !== null &&<>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 <Block>
-                    <div className="text-gray-200 font-medium">Последняя транзакция</div>
-                    <div className="text-lg font-semibold leading-5">
+                    <div>Последняя транзакция</div>
+                    <div className="text-lg font-medium leading-5">
                         <CurrencyAmount currency={statistics.data.transactions.latest_first.account.currency}
                                         type={statistics.data.transactions.latest_first.type}
                                         amount={statistics.data.transactions.latest_first.amount} />
@@ -51,12 +51,12 @@ export default function Dashboard(): JSX.Element {
                 return (
                   <Block>
                     <div className="flex items-center justify-between">
-                      <div className="text-gray-200 font-medium">{exchangeRate.to}</div>
-                      <div className="text-wild-blue-light-shade text-xs font-medium">
+                      <div>{exchangeRate.to}</div>
+                      <div className="text-gray-400 text-xs">
                         {minutes} {declOfNum(minutes, ['минуту', 'минуты', 'минут'])} назад
                       </div>
                     </div>
-                    <div className="text-lg text-blue-400 font-semibold leading-5">
+                    <div className="text-lg text-orange-400 font-medium leading-5">
                       {currencyFormat(exchangeRate.from, exchangeRate.rate, 4)}
                     </div>
                   </Block>

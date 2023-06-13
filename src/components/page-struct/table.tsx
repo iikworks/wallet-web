@@ -14,14 +14,14 @@ type TableProps = {
 
 export default function Table(props: TableProps) {
   return (
-    <div className="relative bg-east-bay-light-shade rounded-xl overflow-x-auto">
+    <div className="relative bg-white rounded-xl overflow-x-auto">
       <table className="w-full text-left">
         <tbody>
           {props.children}
         </tbody>
       </table>
       {props.link &&<div className="flex justify-center py-2">
-          <Link className="font-medium text-gray-300 hover:text-white transition"
+          <Link className="font-medium text-gray-500 hover:text-gray-700 transition"
                 to={props.link.link}>{props.link.title}</Link>
       </div>}
       {props.paginate && props.paginate.last_page !== 1 &&<div className="py-3 px-4">

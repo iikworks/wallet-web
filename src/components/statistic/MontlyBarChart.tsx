@@ -28,28 +28,27 @@ type MonthlyBarChartProps = {
 export function MonthlyBarChart(props: MonthlyBarChartProps) {
   const options = {
     responsive: true,
-    color: '#ffffff',
     scales: {
       x: {
         ticks: {
-          color: '#ffffff',
-          family: "Wix Madefor Display"
+          font: {
+            family: "Manrope",
+          },
         },
       },
       y: {
         ticks: {
-          color: '#ffffff',
-          family: "Wix Madefor Display"
+          font: {
+            family: "Manrope",
+          },
         },
       },
     },
     plugins: {
       legend: {
-        position: 'top' as const,
         labels: {
           font: {
-            color: '#ffffff',
-            family: "Wix Madefor Display"
+            family: "Manrope"
           }
         },
       },

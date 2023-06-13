@@ -7,7 +7,7 @@ export default function Root() {
     <div className="flex text-sm h-screen">
       <Alert />
       <Sidebar />
-      <main className="flex-1 py-2 px-2 sm:py-6 sm:px-6 bg-east-bay overflow-y-auto">
+      <main className="flex-1 py-2 px-2 sm:py-6 sm:px-6 bg-gray-100 overflow-y-auto">
         <Outlet />
       </main>
     </div>

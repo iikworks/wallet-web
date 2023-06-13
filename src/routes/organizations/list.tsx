@@ -46,7 +46,7 @@ export default function OrganizationsList() {
           <Table paginate={meta}>
             {organizations.map(organization => {
               return (
-                <tr key={organization.id} className="font-medium flex flex-wrap text-gray-200 lg:table-row border-b-2 md:border-b border-east-bay">
+                <tr key={organization.id} className="font-medium flex flex-wrap lg:table-row border-b-2 md:border-b border-east-bay">
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     {organization.id}
                   </td>
@@ -56,8 +56,8 @@ export default function OrganizationsList() {
                     </div>}
                   </td>
                   <td className="px-5 md:px-2 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
-                    <div>{strLimit(organization.title, 20)}</div>
-                    <div className="font-normal text-wild-blue-light-shade">{strLimit(organization.vulgar_title, 20)}</div>
+                    <div className="font-medium">{strLimit(organization.title, 20)}</div>
+                    <div className="font-normal text-gray-500">{strLimit(organization.vulgar_title, 20)}</div>
                   </td>
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     <div className="flex justify-end">

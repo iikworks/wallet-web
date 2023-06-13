@@ -46,12 +46,12 @@ export default function BanksList() {
           <Table paginate={meta}>
             {banks.map(bank => {
               return (
-                <tr key={bank.id} className="font-medium flex flex-wrap text-gray-200 lg:table-row border-b-2 md:border-b border-east-bay">
+                <tr key={bank.id} className="font-medium flex flex-wrap lg:table-row border-b-2 md:border-b border-east-bay">
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     {bank.id}
                   </td>
                   <td className="px-5 md:px-2 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
-                    <div>{strLimit(bank.title, 20)}</div>
+                    <div className="font-medium">{strLimit(bank.title, 20)}</div>
                   </td>
                   <td className="px-5 md:px-5 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
                     <div className="flex justify-end">

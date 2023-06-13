@@ -10,7 +10,7 @@ export default function SignIn(): JSX.Element {
       </div>
       <SignInForm />
       <div className="mt-2 text-wild-blue">
-        Ещё нет аккаунта? <Link to="/register" className="text-wild-blue-light-shade hover:text-wild-blue transition">Зарегистрироваться</Link>
+        Ещё нет аккаунта? <Link to="/register" className="text-indigo-500 hover:text-indigo-700 transition">Зарегистрироваться</Link>
       </div>
     </AuthLayout>
   )

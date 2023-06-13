@@ -10,14 +10,14 @@ type AccountDetailsProps = {
 
 export default function AccountDetails(props: AccountDetailsProps) {
   return (
-    <div className="font-medium">
+    <div>
       {props.type === CONSTANTS.ACCOUNT_CASH_TYPE &&<div>
         Наличные
       </div>}
       {props.type === CONSTANTS.ACCOUNT_BANK_ACCOUNT_TYPE &&<>
           <div>
             Счёт
-              <span className="ml-1 text-wild-blue">{props.details?.number}</span>
+              <span className="ml-1 text-orange-400">{props.details?.number}</span>
           </div>
           <div className="leading-4 opacity-60">
             {props.details?.bank ? strLimit(props.details.bank.title, 20) : ''}
@@ -26,7 +26,7 @@ export default function AccountDetails(props: AccountDetailsProps) {
       {props.type === CONSTANTS.ACCOUNT_CARD_TYPE &&<>
           <div>
               Карта
-              <span className="ml-1 text-wild-blue-light-shade">{props.details?.number}</span>
+              <span className="ml-1 text-orange-400">{props.details?.number}</span>
           </div>
           <div className="leading-4 opacity-60">
             {props.details?.bank ? strLimit(props.details.bank.title, 20) : ''}

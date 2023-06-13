@@ -7,7 +7,7 @@ type PlusButtonProps = {
 
 export default function PlusButton(props: PlusButtonProps) {
   return (
-    <Link className="text-wild-blue hover:text-wild-blue-light-shade transition"
+    <Link className="text-indigo-500 hover:text-indigo-600 transition"
        to={props.link}>
       <PlusCircleIcon className="w-6 h-6" />
     </Link>

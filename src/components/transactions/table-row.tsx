@@ -9,7 +9,7 @@ type TableRowProps = {
 
 export default function TransactionTableRow(props: TableRowProps) {
   return (
-    <tr className="font-medium flex flex-wrap text-gray-200 lg:table-row border-b-2 md:border-b border-east-bay">
+    <tr className="font-medium flex flex-wrap lg:table-row border-b-2 md:border-b border-east-bay">
       <td className="px-5 md:px-4 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
         <div>
           {moment(props.transaction.date).format('DD.MM.YYYY')}
@@ -19,8 +19,8 @@ export default function TransactionTableRow(props: TableRowProps) {
         </div>
       </td>
       <td className="px-5 md:px-5 py-3 md:py-3 leading-4 w-full md:w-1/2 lg:w-1/4">
-        <div>{props.transaction.organization.title}</div>
-        <div className="text-wild-blue-light-shade">
+        <div className="font-medium">{props.transaction.organization.title}</div>
+        <div className="text-gray-500">
           {props.transaction.organization.vulgar_title}
         </div>
       </td>
@@ -29,7 +29,7 @@ export default function TransactionTableRow(props: TableRowProps) {
                         details={props.transaction.account.details} />
       </td>
       <td className="px-5 md:px-7 py-3 md:py-3 w-full md:w-1/2 lg:w-1/4">
-        <span className="text-base font-semibold">
+        <span className="text-base font-medium">
             <CurrencyAmount amount={props.transaction.amount}
                             currency={props.transaction.account.currency}
                             type={props.transaction.type} />

@@ -17,13 +17,13 @@ export default function PhoneInput(props: PhoneInputProps) {
 
   return (
     <div>
-      {props.title &&<label htmlFor={props.name} className="ml-2.5 text-gray-200 font-medium">{props.title}</label>}
+      {props.title &&<label htmlFor={props.name} className="ml-2.5 font-medium">{props.title}</label>}
       <IMaskInput
         mask="+375 00 0000000"
         type="text"
         name={props.name}
         id={props.name}
-        className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-none focus:ring-0 text-gray-200 placeholder-wild-blue-dark-shade-1 font-medium bg-east-bay w-full"
+        className="mt-1 py-1.5 px-2.5 block rounded-lg text-sm border-none focus:ring-0 bg-gray-100 placeholder-gray-400 font-medium  w-full"
         ref={ref}
         inputRef={inputRef}
         placeholder='+375 00 0000000'
@@ -32,7 +32,7 @@ export default function PhoneInput(props: PhoneInputProps) {
         onInput={props.onChange}
         value={props.value}
       />
-      {props.error !== '' &&<div className="font-medium text-red-400 text-xs ml-3 mt-0.5">
+      {props.error !== '' &&<div className="font-medium text-red-500 text-xs ml-3 mt-1">
         {props.error}
       </div>}
     </div>

@@ -1,0 +1,9 @@
+services:
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: production
+    container_name: nalik-wallet-client
+    ports:
+      - '${APP_PORT}:80'
