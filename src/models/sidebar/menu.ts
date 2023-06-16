@@ -4,4 +4,5 @@ export type SidebarMenu = {
   icon: ReactElement,
   title: string;
   link: string;
+  activePaths: string[];
 };

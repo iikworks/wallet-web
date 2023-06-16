@@ -94,10 +94,10 @@ export default function Select(props: SelectProps) {
                    placeholder="Поиск..."
                    value={searchQuery}
                    onChange={(event) => setSearchQuery(event.target.value)}
-                   className="w-full block -dark-shade-1 text-sm text-gray-200 font-medium placeholder-wild-blue-dark-shade-1 border-transparent focus:border-transparent focus:ring-0" />
+                   className="w-full block -dark-shade-1 text-gray-800 font-medium placeholder-wild-blue-dark-shade-1 border-transparent focus:border-transparent focus:ring-0" />
         </div>
         <SelectOptionsRecursive level={0} options={options()} selectedOption={selectedOption} select={value => select(value)} />
-        {options().length === 0 &&<div className="px-4 py-2 text-gray-300 font-medium">
+        {options().length === 0 &&<div className="px-4 py-2 text-gray-500 bg-white font-medium">
             нет доступных опций для выбора
         </div>}
       </div>}
