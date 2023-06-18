@@ -84,11 +84,11 @@ export default function Select(props: SelectProps) {
     <div className="relative">
       {props.title &&<label onClick={toggleOpened} htmlFor={props.name} className="ml-2.5 font-medium">{props.title}</label>}
       <input type="hidden" name={props.name} value={value} />
-      <div onClick={toggleOpened} className={`mt-1 overflow-hidden rounded-t-lg cursor-pointer ${opened ? '' : 'rounded-b-lg'}`}>
+      <div onClick={toggleOpened} className={`mt-1 overflow-hidden rounded-t-lg cursor-pointer ${opened ? 'ring-2 ring-blue-400' : 'rounded-b-lg'}`}>
         {!selectedOption &&<SelectOption title="&nbsp;" selected={true} subtitle="не выбрано" />}
         {selectedOption &&<SelectOption title={selectedOption.title} selected={true} subtitle={selectedOption.subtitle} />}
       </div>
-      {opened &&<div className="absolute  shadow-xl z-10 overflow-x-hidden overflow-y-auto max-h-60 rounded-b-lg w-full">
+      {opened &&<div className="absolute shadow-xl z-10 overflow-x-hidden overflow-y-auto max-h-60 rounded-b-lg w-full">
         <div>
             <input type="text"
                    placeholder="Поиск..."
